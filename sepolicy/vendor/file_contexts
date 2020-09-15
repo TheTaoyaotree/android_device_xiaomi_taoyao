@@ -27,10 +27,6 @@
 # (e.g. Google Camera App)
 /mnt/vendor/dsp/fastrpc_shell_3                                         u:object_r:public_adsprpcd_file:s0
 
-# Dolby
-/data/vendor/dolby(/.*)?                                                                            u:object_r:vendor_data_file:s0
-/vendor/bin/hw/vendor\.dolby\.hardware\.dms@2\.0-service                                            u:object_r:hal_dms_default_exec:s0
-
 # Fingerprint
 /data/vendor/fpc(/.*)?                                                    u:object_r:fingerprint_vendor_data_file:s0
 /data/vendor/fpdump(/.*)?                                                 u:object_r:fingerprint_vendor_data_file:s0
@@ -42,6 +38,9 @@
 /sys/devices/virtual/touch/touch_dev/fod_press_status                     u:object_r:vendor_sysfs_udfps:s0
 /sys/devices/virtual/touch/tp_dev/fod_status                              u:object_r:vendor_sysfs_udfps:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
+
+# HTSR
+/sys/devices/virtual/touch/touch_dev/bump_sample_rate	 u:object_r:sysfs_htsr:s0
 
 # IR
 /dev/lirc[0-9]+                                                           u:object_r:lirc_device:s0
@@ -61,6 +60,7 @@
 
 # Power
 /dev/xiaomi-touch                                                         u:object_r:vendor_touchfeature_device:s0
+/vendor/bin/hw/android\.hardware\.power-service\.lineage-libperfmgr  u:object_r:hal_power_default_exec:s0
 
 # Sensors
 /sys/bus/iio/devices                                                      u:object_r:vendor_sysfs_iio:s0
@@ -77,3 +77,9 @@
 /data/vendor/mac_addr(/.*)?                                               u:object_r:vendor_wifi_vendor_data_file:s0
 /data/vendor/wlan_logs(/.*)?                                              u:object_r:vendor_wifi_vendor_data_file:s0
 /vendor/bin/nv_mac                                                        u:object_r:vendor_wcnss_service_exec:s0
+
+# ZRAM
+/sys/block/zram0/comp_algorithm 					       u:object_r:sysfs_zram:s0
+
+# CPU Power
+/sys/kernel/cpu_power_toggle/limit_mode					   u:object_r:vendor_sysfs_cpupower:s0

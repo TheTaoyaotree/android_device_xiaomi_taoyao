@@ -1,0 +1,7 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <SwitchPreference
+        android:key="power_limit_pref"
+        android:title="@string/power_limit_title"
+        android:summary="@string/power_limit_summary"
+        android:defaultValue="false" />
+</PreferenceScreen>

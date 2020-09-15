@@ -124,6 +124,12 @@ vendor/bin/hw/vendor.qti.hardware.capabilityconfigstore@1.0-service
 vendor/etc/init/vendor.qti.hardware.capabilityconfigstore@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.capabilityconfigstore@1.0-impl.so
 
+# Diag
+vendor/bin/diag-router
+vendor/etc/init/vendor.qti.diag.rc
+vendor/etc/vintf/manifest/vendor.qti.diag.hal.service.xml
+vendor/lib64/vendor.qti.diaghal@1.0.so;MODULE_SUFFIX=_vendor
+
 # Display - from sunstone V816.0.8.0.UMQMIXM
 vendor/etc/display/DPU660.xml|b26dd73e361546d89bf3d7082a471703dc6ac2cb
 vendor/etc/display/DPU670.xml|e5131a60ceff29ca5eb561eec7eddadef1d0486f
@@ -246,6 +252,7 @@ vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_api_v02.so
+vendor/lib64/libloc_api_wds.so|3d50102465e513df54d7354a41c4211fba870755
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
@@ -406,24 +413,6 @@ vendor/lib/libqcodec2_utils.so
 vendor/lib/libqcodec2_v4l2codec.so
 vendor/lib64/libmmosal.so;MODULE_SUFFIX=_vendor
 
-# Media (Dolby)
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/media_codecs_dolby_audio.xml
-vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
-vendor/lib/libdapparamstorage.so
-vendor/lib/libdeccfg.so
-vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/libstagefright_soft_ddpdec.so
-vendor/lib/soundfx/libswdap.so|810d0e266e4a77f06cba72fe8bdde2e1ede4f9f9
-vendor/lib/soundfx/libswgamedap.so
-vendor/lib/soundfx/libswvqe.so
-vendor/lib/vendor.dolby.hardware.dms@2.0.so
-vendor/lib64/libdapparamstorage.so
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
-
 # Mlipay
 vendor/bin/mlipayd@1.1
 vendor/etc/init/vendor.xiaomi.hardware.mlipay@1.1-service.rc
@@ -466,13 +455,15 @@ vendor/lib/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
 vendor/lib/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
 vendor/lib/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
 vendor/lib/hw/vendor.xiaomi.hardware.misys@4.0-impl.so
+vendor/lib/libcheckpid.so
+vendor/lib/liblogwrap_vendor.so
 vendor/lib/libmicuttlefish_fs.so
 vendor/lib/libmicuttlefish_utils.so
 vendor/lib/libmivsock_utils.so
-vendor/lib/vendor.xiaomi.hardware.misys@1.0.so
-vendor/lib/vendor.xiaomi.hardware.misys@2.0.so
-vendor/lib/vendor.xiaomi.hardware.misys@3.0.so
-vendor/lib/vendor.xiaomi.hardware.misys@4.0.so
+vendor/lib/vendor.xiaomi.hardware.misys@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib/vendor.xiaomi.hardware.misys@2.0.so;MODULE_SUFFIX=_vendor
+vendor/lib/vendor.xiaomi.hardware.misys@3.0.so;MODULE_SUFFIX=_vendor
+vendor/lib/vendor.xiaomi.hardware.misys@4.0.so;MODULE_SUFFIX=_vendor
 vendor/lib64/hw/vendor.xiaomi.hardware.misys@1.0-impl.so
 vendor/lib64/hw/vendor.xiaomi.hardware.misys@2.0-impl.so
 vendor/lib64/hw/vendor.xiaomi.hardware.misys@3.0-impl.so
@@ -482,10 +473,10 @@ vendor/lib64/liblogwrap_vendor.so
 vendor/lib64/libmicuttlefish_fs.so
 vendor/lib64/libmicuttlefish_utils.so
 vendor/lib64/libmivsock_utils.so
-vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so
-vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so
+vendor/lib64/vendor.xiaomi.hardware.misys@1.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.xiaomi.hardware.misys@2.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.xiaomi.hardware.misys@3.0.so;MODULE_SUFFIX=_vendor
+vendor/lib64/vendor.xiaomi.hardware.misys@4.0.so;MODULE_SUFFIX=_vendor
 
 # Neural networks
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti

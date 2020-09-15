@@ -82,6 +82,7 @@ on boot
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
 
+    mkdir /mnt/vendor/persist/alarm 0770 system system
     mkdir /mnt/vendor/persist/time 0770 system system
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/iar_db 0770 system system
@@ -220,8 +221,20 @@ on post-fs-data
     mkdir /data/vendor/vpp 0770 media media
 
     setprop vold.post_fs_data_done 1
+    
+    # Allow system to modify exposure dim layer state
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
+    # Allow system to modify hbm state
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm_enabled
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm_enabled
+
+    # Allow systemto modify High Touch Sampling Rate
+    chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
+    chmod 0660 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
 
 on property:sys.boot_completed=1
+    setprop vendor.post_boot.parsed 1
     # Enable UFS clock scaling back
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
     # Enable UFS auto_hibern8 back
@@ -236,8 +249,30 @@ on property:sys.boot_completed=1
     # Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
 
-    # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
+    # Power hal
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us
+    chown system system /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/schedutil/up_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/schedutil/down_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/schedutil/up_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/schedutil/down_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpu7/cpufreq/schedutil/up_rate_limit_us
+    chmod 0664 /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us
+
+    # Disable native stats collection service
     stop statsd
+
+    # Allow system to modify swappiness
+    chown system system /proc/sys/vm/swappiness
+    chmod 0660 /proc/sys/vm/swappiness
+
+    # CPU Freq node
+    chown system system /sys/kernel/cpu_power_toggle/limit_mode
+    chmod 0660 /sys/kernel/cpu_power_toggle/limit_mode
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core
