@@ -120,6 +120,8 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.hidl.memory@1.0.vendor \
+    android.hidl.memory.block@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64
 
@@ -215,7 +217,8 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     libhidltransport \
-    libhwbinder
+    libhwbinder \
+    android.hidl.manager@1.0.vendor
 
 # HotwordEnrollement
 PRODUCT_COPY_FILES += \
