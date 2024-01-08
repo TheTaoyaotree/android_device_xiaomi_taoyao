@@ -10,3 +10,7 @@ ro.vendor.dolby.model=PAFM00
 ro.vendor.dolby.device=OP46C3
 ro.vendor.dolby.manufacturer=OPLUS
 ro.vendor.dolby.brand=OPLUS
+
+# SKU properties
+ro.product.property_source_order=odm,product,vendor,system_ext,system
+import /odm/etc/${ro.boot.hwc}_build.prop
