@@ -233,3 +233,7 @@ service citsensor-hal-1-1 /vendor/bin/hw/vendor.xiaomi.hardware.citsensorservice
 on property:sys.boot_completed=1
     # Only owner can acces this node
     chmod 440 /proc/net/unix
+
+on property:sys.boot_completed=1
+    # STOP EATING MY BATTERY AFTER 100H OF UPTIME FUCK YOU
+    stop statsd
