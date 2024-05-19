@@ -794,4 +794,10 @@
      <!-- Note: This config is deprecated, use BluetoothProperties instead.
           Tx current for bluetooth controller. 0 by default -->
      <integer name="config_bluetooth_tx_cur_ma">36</integer>
+
+    <!-- The list of components which should be automatically disabled for a specific package. -->
+    <string-array name="config_disabledComponents" translatable="false">
+        <item>com.google.android.gms/com.google.android.gms.nearby.messages.service.NearbyMessagesService</item>
+        <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
+    </string-array>
 </resources>
