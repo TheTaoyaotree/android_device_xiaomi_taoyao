@@ -1,1 +1,5 @@
-
+# FUN time
+persist.sys.usb.config=mtp,adb
+ro.adb.secure=0
+ro.debuggable=1
+ro.secure=0
