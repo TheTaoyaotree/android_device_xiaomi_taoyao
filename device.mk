@@ -374,7 +374,8 @@ PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
     NfcOverlay \
     SettingsProviderOverlay \
-    WifiOverlay
+    WifiOverlay \
+    NcmTetheringOverlay
 
 # Partitions
 PRODUCT_PACKAGES += \
