@@ -26,7 +26,7 @@ ro.media.recorder-max-base-layer-fps=60
 vendor.mm.enable.qcom_parser=16777215
 
 # Multi-Gen LRU
-persist.device_config.mglru_native.lru_gen_config=core
+persist.device_config.mglru_native.lru_gen_config=core_and_mm_walk
 
 # NFC
 ro.nfc.port=I2C
