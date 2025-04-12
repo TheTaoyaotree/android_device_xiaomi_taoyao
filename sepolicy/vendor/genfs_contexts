@@ -50,3 +50,8 @@ genfscon sysfs /devices/platform/soc/soc:qcom,kgsl-hyp/subsys4/wakeup u:object_r
 genfscon sysfs /devices/platform/soc/soc:qcom,trustedvm@d0800000/subsys1/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,trustedvm@d0800000/subsys2/wakeup u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/3700000.qcom,lpass/subsys6/wakeup u:object_r:sysfs_wakeup:s0
+
+# Torch control
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:torch_0/brightness u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:torch_0/max_brightness u:object_r:sysfs_leds:s0
+genfscon sysfs /devices/platform/soc/c440000.qcom,spmi/spmi-0/spmi0-02/c440000.qcom,spmi:qcom,pm8350c@2:qcom,flash_led@ee00/leds/led:switch_2/brightness u:object_r:sysfs_leds:s0
