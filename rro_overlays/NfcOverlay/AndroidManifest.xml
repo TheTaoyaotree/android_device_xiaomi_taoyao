@@ -15,12 +15,12 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.wifi.resources.taoyao"
+    package="com.android.nfc.taoyao"
     android:versionCode="1"
     android:versionName="1.0">
     <application android:hasCode="false" />
     <overlay
-      android:targetPackage="com.android.wifi.resources"
+      android:targetPackage="com.android.nfc"
       android:isStatic="true"
       android:priority="0"/>
 </manifest>

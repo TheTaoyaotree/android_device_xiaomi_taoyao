@@ -164,6 +164,10 @@ persist.vendor.dpm.idletimer.mode=default
 persist.vendor.dpm.nsrm.bkg.evt=3955
 persist.vendor.dpmhalservice.enable=1
 
+# Fingerprint
+persist.vendor.fingerprint.type=udfps_optical
+persist.vendor.fingerprint.sensor_location=540|2149|103
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -269,6 +273,7 @@ persist.vendor.sensors.debug.hal=0
 persist.vendor.sensors.allow_non_default_discovery=true
 persist.vendor.sensors.on_change_sample_period=true
 persist.vendor.sensors.sync_request=true
+ro.vendor.sensors.xiaomi.udfps=true
 
 # Storage
 ro.incremental.enable=yes
