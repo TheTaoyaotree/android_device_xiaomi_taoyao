@@ -54,9 +54,6 @@ TARGET_PROVIDES_AUDIO_EXTNS := true
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := taoyao
 
-# Camera
-TARGET_CAMERA_SERVICE_EXT_LIB := //$(DEVICE_PATH):libcameraservice_extension.xiaomi_sm8350
-
 # Display
 TARGET_SCREEN_DENSITY ?= 440
 
