@@ -494,6 +494,9 @@ vendor/etc/camera/megviifacepp_0_5_2_model
 vendor/lib64/libMegviiFacepp-0.5.2.so
 vendor/lib64/libmegface.so:vendor/lib64/libmegface_xiaomi.so;FIX_SONAME
 
+# Camera Extensions
+system_ext/framework/camerax-vendor-extensions.jar:system/framework/camerax-vendor-extensions.jar;BOOT_JAR
+
 # Camera features
 vendor/lib64/com.qti.chiusecaseselector.so
 vendor/lib64/com.qti.feature2.anchorsync.so
