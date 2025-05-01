@@ -95,10 +95,14 @@ BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_BOOT_HEADER_VERSION := 3
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 
-TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=$(PRODUCT_DEVICE)
-TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/xiaomi/taoyao
 TARGET_KERNEL_CONFIG := vendor/taoyao-qgki_defconfig
+TARGET_NO_KERNEL_OVERRIDE := true
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb/
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+
+PRODUCT_COPY_FILES += \
+	$(DEVICE_PATH)/prebuilts/kernel:kernel
 
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
@@ -115,13 +119,11 @@ BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
 BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 # Kernel modules
-BOOT_KERNEL_MODULES := \
-    focaltech_touch.ko \
-    goodix_core.ko \
-    hwid.ko \
-    msm_drm.ko \
-    xiaomi_touch.ko
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
+BOARD_KERNEL_MODULE_DIRS := 5.4-gki
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/modules/*.ko)
+BOARD_VENDOR_KERNEL_MODULES_LOAD := $(BOARD_VENDOR_KERNEL_MODULES)
+BOARD_VENDOR_KERNEL_MODULES_5.4-gki := $(wildcard $(DEVICE_PATH)/prebuilts/modules/5.4-gki/*.ko)
+BOARD_VENDOR_KERNEL_MODULES_LOAD_5.4-gki := $(BOARD_VENDOR_KERNEL_MODULES_5.4-gki)
 
 # Lineage Health
 TARGET_HEALTH_CHARGING_CONTROL_SUPPORTS_BYPASS := false
