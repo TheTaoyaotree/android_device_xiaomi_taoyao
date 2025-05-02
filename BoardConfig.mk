@@ -98,7 +98,7 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/taoyao
 TARGET_KERNEL_CONFIG := vendor/taoyao-qgki_defconfig
 TARGET_NO_KERNEL_OVERRIDE := true
-BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb/
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 
 PRODUCT_COPY_FILES += \
@@ -120,6 +120,13 @@ BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 # Kernel modules
 BOARD_KERNEL_MODULE_DIRS := 5.4-gki
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := \
+    $(DEVICE_PATH)/prebuilts/modules/focaltech_touch.ko \
+    $(DEVICE_PATH)/prebuilts/modules/goodix_core.ko \
+    $(DEVICE_PATH)/prebuilts/modules/hwid.ko \
+    $(DEVICE_PATH)/prebuilts/modules/msm_drm.ko \
+    $(DEVICE_PATH)/prebuilts/modules/xiaomi_touch.ko
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(BOOT_KERNEL_MODULES)
 BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/modules/*.ko)
 BOARD_VENDOR_KERNEL_MODULES_LOAD := $(BOARD_VENDOR_KERNEL_MODULES)
 BOARD_VENDOR_KERNEL_MODULES_5.4-gki := $(wildcard $(DEVICE_PATH)/prebuilts/modules/5.4-gki/*.ko)
@@ -137,7 +144,13 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_USES_METADATA_PARTITION := true
 
 BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
-BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := odm product system system_ext vendor vendor_dlkm
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := \
+    odm \
+    vendor_dlkm \
+    system \
+    system_ext \
+    vendor \
+    product
 BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 9122611200 # BOARD_SUPER_PARTITION_SIZE - 4MB
 
 BOARD_ODMIMAGE_FILE_SYSTEM_TYPE := ext4
