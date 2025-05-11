@@ -295,7 +295,6 @@ vendor/lib64/libvidhance_super_stabilization.so
 vendor/lib64/libcert_parse.wpa_s.so
 vendor/lib64/libwapi_cert.so
 vendor/lib64/libwa_depth.so
-vendor/lib64/libwa_opticalzoomfactor.so|328f61fe60672b15a73b83f79f63cbdc172c07b3
 vendor/lib64/libwa_refocus.so
 vendor/lib64/libwa_widelens_undistort.so
 vendor/lib64/libxmi_hdr_bokeh.so
@@ -767,10 +766,10 @@ vendor/etc/mdss_dsi_l9_42_02_0a_dsc_cmd_mi.xml
 vendor/lib64/hw/memtrack.default.so
 
 # Display - from sunstone V816.0.8.0.UMQMIXM
-vendor/etc/display/DPU660.xml|b26dd73e361546d89bf3d7082a471703dc6ac2cb
-vendor/etc/display/DPU670.xml|e5131a60ceff29ca5eb561eec7eddadef1d0486f
-vendor/etc/display/DPU720.xml|4e54e8712d65773eb87867bf64a4cb98ea9bb8c3
-vendor/etc/display/DPU7__.xml|c056f3cb9fa123ca3de5b2a9775c184dddf25b9d
+vendor/etc/display/DPU660.xml
+vendor/etc/display/DPU670.xml
+vendor/etc/display/DPU720.xml
+vendor/etc/display/DPU7__.xml
 vendor/lib64/libdisplayqos.so|aa222f4c1a2d2fb60944c44f8a82621d6bc75184
 vendor/lib64/libdisplayskuutils.so|d467f3bcaeafa6ed9de62afe2c00a3be46f4bb0f
 vendor/lib64/libdpps.so|b7d8458a66fd8510a7a490c1eebd3bac3fb159ec
@@ -887,7 +886,6 @@ vendor/lib64/libops.so
 vendor/lib64/libqcbor.so
 vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so|654acd5681fdb971528056ebeae5c616492a87dc
 vendor/lib64/libspcom.so
 vendor/lib64/libspl.so
 vendor/lib64/libssd.so
@@ -949,7 +947,6 @@ vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_api_v02.so
-vendor/lib64/libloc_api_wds.so|3d50102465e513df54d7354a41c4211fba870755
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
@@ -1411,7 +1408,6 @@ vendor/lib64/ls_nq_client.so
 vendor/lib64/se_nq_extn_client.so
 
 # SecureMSM (SECDISP)
-vendor/lib64/libStDrvInt.so|3542d63a64d1e51cb2ac49c36a44c9fbfdb23edd
 vendor/lib64/libsecureui_svcsock.so
 
 # Sensor-calibrate
@@ -1583,7 +1579,6 @@ vendor/etc/init/vendor.qti.hardware.qteeconnector@1.0-service.rc
 vendor/lib64/hw/vendor.qti.hardware.qteeconnector@1.0-impl.so
 vendor/lib64/libGPQTEEC_vendor.so
 vendor/lib64/libGPTEE_vendor.so
-vendor/lib64/libQTEEConnector_listener.so|a68896617b550a240e2352deea23c171e76356a0
 vendor/lib64/libQTEEConnector_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
