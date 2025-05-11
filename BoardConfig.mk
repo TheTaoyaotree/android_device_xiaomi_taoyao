@@ -87,11 +87,11 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/taoyao
 TARGET_KERNEL_CONFIG := vendor/taoyao-qgki_defconfig
 TARGET_NO_KERNEL_OVERRIDE := true
+BOARD_PREBUILT_DTBIMAGE_DIR := $(DEVICE_PATH)/prebuilts/dtb
 BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
 
 PRODUCT_COPY_FILES += \
-	$(DEVICE_PATH)/prebuilts/kernel:kernel \
-	$(DEVICE_PATH)/prebuilts/dtb.img:dtb.img
+	$(DEVICE_PATH)/prebuilts/kernel:kernel
 
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
