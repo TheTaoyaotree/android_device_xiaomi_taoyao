@@ -831,7 +831,7 @@
           <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
           @see https://www.w3.org/TR/SVG/paths.html#PathData -->
      <string translatable="false" name="config_mainBuiltInDisplayCutout">
-          M 510,62.5 a 30,30 0 1,0 60,0 a 30,30 0 1,0 -60,0 @left
+          M 507.5,62.5 a 32.5,32.5 0 1,0 65,0 a 32.5,32.5 0 1,0 -65,0 @left
      </string>
      
      <!-- Like config_mainBuiltInDisplayCutout, but this path is used to report the
@@ -853,8 +853,6 @@
 
      <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
      <integer name="config_shutdownBatteryTemperature">580</integer>
-
-     <bool name="config_wifi_wap3_sap_mode_enabled">true</bool>
 
      <!-- Note: This setting is deprecated, please use
           config_screenBrightnessSettingDefaultFloat instead -->
@@ -879,8 +877,4 @@
      <!-- Note: This config is deprecated, use BluetoothProperties instead.
           Tx current for bluetooth controller. 0 by default -->
      <integer name="config_bluetooth_tx_cur_ma">36</integer>
-
-     <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
-
-     <bool name="config_wifi_p2p_mac_randomization_supported">true</bool>
 </resources>
