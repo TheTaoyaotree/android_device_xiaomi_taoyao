@@ -88,6 +88,10 @@ blob_fixups: blob_fixups_user_type = {
         .binary_regex_replace(b'system/lib64/libion.so', b'vendor/lib64/libion.so'),
     'vendor/etc/camera/taoyao_motiontuning.xml': blob_fixup()
         .regex_replace('xml=version', 'xml version'),
+    'system/lib64/libmicampostproc_client.so': blob_fixup()
+        .remove_needed('libhidltransport.so'),
+    'system/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
+        .apktool_patch('patches'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
