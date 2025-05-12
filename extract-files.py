@@ -90,8 +90,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('xml=version', 'xml version'),
     'system/lib64/libmicampostproc_client.so': blob_fixup()
         .remove_needed('libhidltransport.so'),
-    'system/priv-app/MiuiCamera/MiuiCamera.apk': blob_fixup()
-        .apktool_patch('patches'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
