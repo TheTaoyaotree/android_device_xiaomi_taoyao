@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from haydn V816.0.11.0.UKKMIXM
+# All unpinned blobs below are extracted from taoyao V816.0.17.0.ULIMIXM
 
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -957,6 +957,7 @@ vendor/lib64/libizat_client_api.so
 vendor/lib64/libizat_core.so
 vendor/lib64/liblbs_core.so
 vendor/lib64/libloc_api_v02.so
+vendor/lib64/libloc_api_wds.so|3d50102465e513df54d7354a41c4211fba870755
 vendor/lib64/libloc_socket.so
 vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
@@ -1253,7 +1254,7 @@ vendor/lib64/unnhal-acc-gpu.so
 vendor/lib64/unnhal-acc-htp.so
 
 # NFC
-vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
+vendor/lib64/libsn100u_fw.so
 
 # NFC configs
 vendor/etc/libnfc-nxp_RF.conf

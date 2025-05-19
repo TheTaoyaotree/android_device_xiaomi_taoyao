@@ -7,7 +7,7 @@
 # Inherit from taoyao device
 $(call inherit-product, device/xiaomi/taoyao/device.mk)
 
-# Inherit from common PixelOS configuration
+# Inherit from common Evolution X configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 TARGET_BOOT_ANIMATION_RES := 1080

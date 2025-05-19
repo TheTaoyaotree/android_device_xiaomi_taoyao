@@ -50,6 +50,8 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    'system_ext/bin/wfdservice64': blob_fixup()
+        .add_needed('libwfdservice_shim.so'),
     'system_ext/etc/init/wfdservice.rc': blob_fixup()
         .regex_replace(r'(start|stop) wfdservice\b', r'\1 wfdservice64'),
     'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
@@ -81,8 +83,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libprocessgroup_shim.so'),
     'vendor/lib64/libMegviiFacepp-0.5.2.so': blob_fixup()
         .replace_needed('libmegface.so', 'libmegface_xiaomi.so'),
-    'vendor/lib64/hw/camera.xiaomi.so': blob_fixup()
-        .sig_replace('29 07 00 94', '1F 20 03 D5'),
     'vendor/lib64/hw/com.qti.chi.override.so': blob_fixup()
         .add_needed('libprocessgroup_shim.so')
         .binary_regex_replace(b'system/lib64/libion.so', b'vendor/lib64/libion.so'),

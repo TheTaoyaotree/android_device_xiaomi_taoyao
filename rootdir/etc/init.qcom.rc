@@ -270,9 +270,9 @@ on property:sys.boot_completed=1
     chown system system /proc/sys/vm/swappiness
     chmod 0660 /proc/sys/vm/swappiness
 
-    # CPU Freq node
-    chown system system /sys/kernel/cpu_power_toggle/limit_mode
-    chmod 0660 /sys/kernel/cpu_power_toggle/limit_mode
+    # Charge Bypass
+    chown system system /sys/class/qcom-battery/input_suspend
+    chmod 0660 /sys/class/qcom-battery/input_suspend
 
 service vendor.qrtr-ns /vendor/bin/qrtr-ns -f
     class core

@@ -9,6 +9,9 @@ allow system_app vendor_sysfs_graphics:file { getattr open write };
 allow system_app sysfs_htsr:file { read write open setattr getattr };
 allow system_app sysfs_htsr:dir { search open read };
 
+# Parts
+allow system_app sysfs_thermal:file write;
+
 # Incremental
 get_prop(system_app, incremental_prop)
 # allow apps like settings to check the file signature of an apk installed on
@@ -26,5 +29,6 @@ get_prop(system_app, vendor_zram_prop)
 set_prop(system_app, vendor_default_prop)
 get_prop(system_app, vendor_default_prop)
 
-# Allow system_app to toggle CPU Power
-allow system_app vendor_sysfs_cpupower:file { getattr open read write };
+# Charge Bypass
+allow system_app vendor_sysfs_battery_supply:dir search;
+allow system_app vendor_sysfs_battery_supply:file { getattr open read write };

@@ -80,6 +80,3 @@
 
 # ZRAM
 /sys/block/zram0/comp_algorithm 					       u:object_r:sysfs_zram:s0
-
-# CPU Power
-/sys/kernel/cpu_power_toggle/limit_mode					   u:object_r:vendor_sysfs_cpupower:s0

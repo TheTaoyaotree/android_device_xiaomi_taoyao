@@ -1,6 +1,5 @@
 /*
- * Copyright (C) 2015-2016 The CyanogenMod Project
- *               2017,2021-2025 The LineageOS Project
+ * Copyright (C) 2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +14,32 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.power;
+package org.lineageos.settings.charge;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
 
-public class PowerLimitActivity extends CollapsingToolbarBaseActivity {
-    private static final String TAG_POWER_LIMIT = "powerlimit";
+public class ChargeActivity extends CollapsingToolbarBaseActivity {
+
+    private static final String TAG_BYPASS_CHARGE = "bypass_charge";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         getFragmentManager().beginTransaction().replace(
-            com.android.settingslib.collapsingtoolbar.R.id.content_frame,
-            new PowerLimitFragment(), TAG_POWER_LIMIT).commit();
+                com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+                new ChargeSettingsFragment(), TAG_BYPASS_CHARGE).commit();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return false;
     }
 }
