@@ -142,10 +142,6 @@ on boot
     chown system system /sys/class/thermal/thermal_message/charger_temp
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
 
-    # Display feature sysfs node
-    chown system system /sys/class/mi_display/disp-DSI-0/disp_param
-    chmod 0664 /sys/class/mi_display/disp-DSI-0/disp_param
-
     # Set xiaomi touch permissions
     chown system system /dev/xiaomi-touch
     chmod 0660 /dev/xiaomi-touch
