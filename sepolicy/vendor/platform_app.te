@@ -1,3 +1,6 @@
+type vendor_lib_camera_metadata, file_type, vendor_file_type;
+type vendor_camera_libs, file_type, vendor_file_type;
+
 allow platform_app vendor_hal_soter_hwservice:hwservice_manager find;
 binder_call(platform_app, vendor_hal_soter_qti)
 
@@ -38,13 +41,14 @@ allow platform_app vendor_hal_soter_hwservice:hwservice_manager find;
 binder_call(platform_app, vendor_hal_soter_qti)
 
 allow platform_app adsprpcd_file:file { open read getattr };
+allow platform_app app_data_file:file execute;
+allow platform_app user_profile_data_file:file read;
+allow platform_app vendor_camera_libs:file { getattr open read map execute };
 allow platform_app vendor_camera_sensor_prop:file { getattr open read map };
 allow platform_app vendor_file:dir watch;
-allow platform_app vendor_file:file { getattr open read map };
-allow platform_app user_profile_data_file:file read;
-allow platform_app app_data_file:file execute;
 allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 allow platform_app vendor_hal_dspmanager_hwservice:hwservice_manager find;
+allow platform_app vendor_lib_camera_metadata:file { execute read };
 allow platform_app vendor_qdsp_device:chr_file { open read write ioctl };
 allow platform_app vendor_xdsp_device:chr_file { open read write ioctl };
 binder_call(platform_app, hal_camera_default);
