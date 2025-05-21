@@ -776,10 +776,13 @@ vendor/etc/mdss_dsi_l9_42_02_0a_dsc_cmd_mi.xml
 vendor/lib64/hw/memtrack.default.so
 
 # Display - from sunstone V816.0.8.0.UMQMIXM
+product/etc/displayconfig/display_id_4630946480857061762.xml:vendor/etc/displayconfig/display_id_4630946480857061762.xml
+product/etc/displayconfig/display_id_4630946545580055170.xml:vendor/etc/displayconfig/display_id_4630946545580055170.xml
 vendor/etc/display/DPU660.xml
 vendor/etc/display/DPU670.xml
 vendor/etc/display/DPU720.xml
 vendor/etc/display/DPU7__.xml
+vendor/etc/display/advanced_sf_offsets.xml
 vendor/lib64/libdisplayqos.so|aa222f4c1a2d2fb60944c44f8a82621d6bc75184
 vendor/lib64/libdisplayskuutils.so|d467f3bcaeafa6ed9de62afe2c00a3be46f4bb0f
 vendor/lib64/libdpps.so|b7d8458a66fd8510a7a490c1eebd3bac3fb159ec
