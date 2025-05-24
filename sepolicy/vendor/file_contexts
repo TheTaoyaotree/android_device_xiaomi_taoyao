@@ -44,6 +44,7 @@
 /dev/goodix_fp                                                            u:object_r:vendor_fingerprint_device:s0
 /dev/mi_display/disp_feature                                              u:object_r:vendor_fingerprint_device:s0
 /mnt/vendor/persist/goodix(/.*)?                                          u:object_r:fingerprint_vendor_data_file:s0
+/sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)?        u:object_r:vendor_sysfs_udfps:s0
 /sys/devices/virtual/touch/touch_dev/fod_press_status                     u:object_r:vendor_sysfs_udfps:s0
 /sys/devices/virtual/touch/tp_dev/fod_status                              u:object_r:vendor_sysfs_udfps:s0
 /vendor/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi u:object_r:hal_fingerprint_default_exec:s0
@@ -52,8 +53,8 @@
 /sys/devices/virtual/touch/touch_dev/bump_sample_rate	 u:object_r:sysfs_htsr:s0
 
 # IR
-/dev/lirc[0-9]+                                                           u:object_r:lirc_device:s0
-/vendor/bin/hw/android\.hardware\.ir-service\.xiaomi                      u:object_r:hal_ir_default_exec:s0
+/dev/ir_spi                                                               u:object_r:ir_spi_device:s0
+/vendor/bin/hw/android\.hardware\.ir-service\.taoyao                      u:object_r:hal_ir_default_exec:s0
 
 # Fastcharge HAL
 /(vendor|system/vendor)/bin/hw/vendor\.lineage\.fastcharge@[0-9]\.[0-9]-service\.venus        u:object_r:hal_lineage_fastcharge_default_exec:s0
