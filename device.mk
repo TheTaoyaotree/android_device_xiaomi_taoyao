@@ -138,6 +138,8 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.xiaomi_taoyao)
 $(call soong_config_set,camera,override_format_from_reserved,true)
+$(call soong_config_set,camera,package_name,com.android.camera)
+
 
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
