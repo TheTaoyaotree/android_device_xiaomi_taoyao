@@ -8,6 +8,10 @@ DEVICE_PATH := device/xiaomi/taoyao
 
 BOARD_VENDOR := xiaomi
 
+# Ignore overriding commands errors
+BUILD_BROKEN_DUP_RULES := true
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
 # A/B
 AB_OTA_PARTITIONS += \
     boot \
@@ -24,19 +28,25 @@ AB_OTA_PARTITIONS += \
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv8-2a-dotprod
 TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := cortex-a76
 
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a55
+TARGET_2ND_CPU_VARIANT := cortex-a76
+
+# ART
+ART_BUILD_TARGET_NDEBUG := true
+ART_BUILD_TARGET_DEBUG := false
+ART_BUILD_HOST_NDEBUG := true
+ART_BUILD_HOST_DEBUG := false
 
 # Audio
 AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
-AUDIO_FEATURE_ENABLED_DS2_DOLBY_DAP := true
 AUDIO_FEATURE_ENABLED_GKI := true
 AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
@@ -44,15 +54,12 @@ TARGET_PROVIDES_AUDIO_EXTNS := true
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := taoyao
+
+# Camera
+TARGET_CAMERA_SERVICE_EXT_LIB := //$(DEVICE_PATH):libcameraservice_extension.xiaomi_sm8350
 
 # Display
-TARGET_SCREEN_DENSITY := 440
-
-# Dolby Vision
-SOONG_CONFIG_NAMESPACES += dolby_vision
-SOONG_CONFIG_dolby_vision += enabled
-SOONG_CONFIG_dolby_vision_enabled := true
+TARGET_SCREEN_DENSITY ?= 440
 
 # Filesystem
 TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
@@ -98,19 +105,17 @@ PRODUCT_COPY_FILES += \
 
 BOARD_KERNEL_CMDLINE += androidboot.console=ttyMSM0
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
-BOARD_KERNEL_CMDLINE += androidboot.memcg=1
 BOARD_KERNEL_CMDLINE += androidboot.usbcontroller=a600000.dwc3
 BOARD_KERNEL_CMDLINE += cgroup.memory=nokmem,nosocket
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8
-BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
-BOARD_KERNEL_CMDLINE += iptable_raw.raw_before_defrag=1
 BOARD_KERNEL_CMDLINE += loop.max_part=7
-BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1
 BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
-BOARD_KERNEL_CMDLINE += pcie_ports=compat
 BOARD_KERNEL_CMDLINE += service_locator.enable=1
 BOARD_KERNEL_CMDLINE += swiotlb=0
-BOARD_KERNEL_CMDLINE += video=vfb:640x400,bpp=32,memsize=3072000
+BOARD_KERNEL_CMDLINE += pcie_ports=compat
+BOARD_KERNEL_CMDLINE += iptable_raw.raw_before_defrag=1
+BOARD_KERNEL_CMDLINE += ip6table_raw.raw_before_defrag=1
+BOARD_KERNEL_CMDLINE += androidboot.init_fatal_reboot_target=recovery
 
 # Kernel modules
 BOARD_KERNEL_MODULE_DIRS := 5.4-gki
@@ -127,9 +132,9 @@ BOARD_VENDOR_KERNEL_MODULES_5.4-gki := $(wildcard $(DEVICE_PATH)/prebuilts/modul
 BOARD_VENDOR_KERNEL_MODULES_LOAD_5.4-gki := $(BOARD_VENDOR_KERNEL_MODULES_5.4-gki)
 
 # Partitions
-BOARD_FLASH_BLOCK_SIZE := 262144
+BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_BOOTIMAGE_PARTITION_SIZE := 201326592
-BOARD_DTBOIMG_PARTITION_SIZE := 16777216
+BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_USES_METADATA_PARTITION := true
@@ -159,9 +164,6 @@ TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 # Platform
 TARGET_BOARD_PLATFORM := lahaina
 
-# Power
-TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
-
 # Properties
 TARGET_ODM_PROP += $(DEVICE_PATH)/odm.prop
 TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
@@ -184,7 +186,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 ENABLE_VENDOR_RIL_SERVICE := true
 
 # Security patch level
-VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
+VENDOR_SECURITY_PATCH := 2025-06-05
 
 # Sepolicy
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
@@ -192,7 +194,6 @@ include device/qcom/sepolicy_vndr/SEPolicy.mk
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
-BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/dolby
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SELINUX_IGNORE_NEVERALLOWS := true
 
@@ -216,6 +217,7 @@ BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+CONFIG_IEEE80211AX := true
 QC_WIFI_HIDL_FEATURE_DUAL_AP := true
 WIFI_DRIVER_DEFAULT := wlan
 WIFI_DRIVER_STATE_CTRL_PARAM := "/dev/wlan"

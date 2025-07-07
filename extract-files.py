@@ -28,6 +28,7 @@ namespace_imports = [
     'vendor/qcom/opensource/display',
 ]
 
+
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_{partition}' if partition == 'vendor' else None
 
@@ -56,6 +57,7 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .add_needed('libgui_shim_sm8350.so')
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .remove_needed('android.hidl.base@1.0.so')

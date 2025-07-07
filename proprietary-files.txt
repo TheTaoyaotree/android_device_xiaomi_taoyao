@@ -98,10 +98,6 @@ vendor/lib/rfsa/adsp/misound_res_headphone.bin
 vendor/lib/rfsa/adsp/misound_res_spk.bin
 
 # Audio configs
-vendor/etc/audio_policy_engine_configuration.xml
-vendor/etc/audio_policy_engine_stream_volumes.xml
-vendor/etc/audio_policy_engine_default_stream_volumes.xml
-vendor/etc/audio_policy_engine_product_strategies.xml
 vendor/etc/audio/sku_yupik/audio_platform_info_yupikidp.xml
 vendor/etc/audio/sku_yupik/audio_platform_info_intcodec.xml
 vendor/etc/audio/sku_yupik/mixer_paths_yupikidp.xml
@@ -776,8 +772,6 @@ vendor/etc/mdss_dsi_l9_42_02_0a_dsc_cmd_mi.xml
 vendor/lib64/hw/memtrack.default.so
 
 # Display - from sunstone V816.0.8.0.UMQMIXM
-product/etc/displayconfig/display_id_4630946480857061762.xml:vendor/etc/displayconfig/display_id_4630946480857061762.xml
-product/etc/displayconfig/display_id_4630946545580055170.xml:vendor/etc/displayconfig/display_id_4630946545580055170.xml
 vendor/etc/display/DPU660.xml
 vendor/etc/display/DPU670.xml
 vendor/etc/display/DPU720.xml
@@ -835,32 +829,6 @@ vendor/lib64/libmiXmlParser.so
 vendor/lib64/libtinyxml.so
 vendor/lib64/libmi-stc-HW-modulate.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so:system_ext/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
-
-# Dolby
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/media_codecs_dolby_audio.xml
-vendor/etc/vintf/manifest/manifest_vendor.dolby.hardware.dms.xml
-vendor/lib/libdapparamstorage.so
-vendor/lib/libdeccfg.so
-vendor/lib/libstagefright_soft_ac4dec.so
-vendor/lib/libstagefright_soft_ddpdec.so
-vendor/lib/libstagefrightdolby.so
-vendor/lib/soundfx/libhwdap.so
-vendor/lib/soundfx/libswgamedap.so
-vendor/lib/soundfx/libswvqe.so
-vendor/lib/vendor.dolby.hardware.dms@2.0.so
-vendor/lib64/libdapparamstorage.so
-vendor/lib64/libdeccfg.so
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/libstagefright_soft_ac4dec.so
-vendor/lib64/libstagefright_soft_ddpdec.so
-vendor/lib64/libstagefrightdolby.so
-vendor/lib64/soundfx/libhwdap.so
-vendor/lib64/soundfx/libswgamedap.so
-vendor/lib64/soundfx/libswvqe.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
 
 # DPM
 system/framework/tcmclient.jar
@@ -1355,6 +1323,22 @@ vendor/etc/init/qcrilNrd.rc
 vendor/etc/init/ssgtzd.rc
 vendor/etc/init/vendor.qti.rmt_storage.rc
 vendor/etc/init/vendor.qti.tftp.rc
+vendor/etc/qcril_database/upgrade/config/10.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
+vendor/etc/qcril_database/upgrade/config/6.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
+vendor/etc/qcril_database/upgrade/config/7.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
+vendor/etc/qcril_database/upgrade/config/8.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
+vendor/etc/qcril_database/upgrade/config/9.0_config.sql;FILEGROUP=proprietary_rildb_config_sql_files
+vendor/etc/qcril_database/upgrade/other/0_initial_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/10_version_update_ecc_table.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/1_version_intro_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/2_version_add_wps_config_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/3_version_update_wps_config_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/4_version_update_ecc_table_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/5_version_update_ecc_table_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/6_version_change_property_table_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/7_version_update_ecc_table_qcrilnr.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/8_version_update_ecc_table.sql;FILEGROUP=proprietary_rildb_other_sql_files
+vendor/etc/qcril_database/upgrade/other/9_version_update_ecc_table.sql;FILEGROUP=proprietary_rildb_other_sql_files
 vendor/etc/seccomp_policy/qcrilnr@2.0.policy
 vendor/etc/ssg/ta_config.json
 vendor/etc/ssg/tz_whitelist.json
@@ -1584,8 +1568,11 @@ vendor/lib64/libtime_genoff.so
 
 # Touchscreen firmware
 vendor/firmware/focaltech_ts_fw.bin
+vendor/firmware/focaltech_ts_fw.bin:vendor_ramdisk/lib/firmware/focaltech_ts_fw.bin
 vendor/firmware/goodix_cfg_group_l9.bin
+vendor/firmware/goodix_cfg_group_l9.bin:vendor_ramdisk/lib/firmware/goodix_cfg_group_l9.bin
 vendor/firmware/goodix_firmware_l9.bin
+vendor/firmware/goodix_firmware_l9.bin:vendor_ramdisk/lib/firmware/goodix_firmware_l9.bin
 
 # Trusted Execution Environment connector
 vendor/bin/hw/vendor.qti.hardware.qteeconnector@1.0-service
@@ -1600,14 +1587,7 @@ vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Vibrator firmware
-vendor/firmware/aw8624_haptic.bin
 vendor/firmware/aw8622x_haptic.bin
-vendor/firmware/aw8622xl_haptic.bin
-vendor/firmware/aw8624l_rtp_silk.bin
-vendor/firmware/aw8624l_rtp_lighthouse.bin
-vendor/firmware/aw8624l_rtp.bin
-vendor/firmware/aw8624l_osc_rtp_24K_5s.bin
-vendor/firmware/aw8624l_haptic.bin
 vendor/lib64/libtriplecam_optical_zoom_control.so
 vendor/lib64/libsysmon_cdsp_skel.so
 

@@ -1,0 +1,2 @@
+void _ZTVN7android21SurfaceComposerClient11TransactionE() {}
+void _ZN7android11AudioSystem24setDeviceConnectionStateE24audio_policy_dev_state_tRKNS_5media5audio6common9AudioPortE14audio_format_t() {}

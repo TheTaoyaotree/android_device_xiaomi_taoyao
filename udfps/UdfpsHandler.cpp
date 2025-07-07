@@ -27,16 +27,19 @@
 #define PARAM_NIT_NONE 0
 
 // Touchscreen and HBM
-#define TOUCH_DEV_PATH "/dev/xiaomi-touch"
 #define DISP_FEATURE_PATH "/dev/mi_display/disp_feature"
+#define FOD_STATUS_PATH "/sys/devices/platform/goodix_ts.0/fod_enable"
 
 #define FOD_STATUS_OFF 0
 #define FOD_STATUS_ON 1
 
-#define PARAM_FOD_PRESSED 1
-#define PARAM_FOD_RELEASED 0
-
 using ::aidl::android::hardware::biometrics::fingerprint::AcquiredInfo;
+
+template <typename T>
+static void set(const std::string& path, const T& value) {
+    std::ofstream file(path);
+    file << value;
+}
 
 static bool readBool(int fd) {
     char c;
@@ -71,19 +74,18 @@ class XiaomiUdfpsHandler : public UdfpsHandler {
 public:
     void init(fingerprint_device_t* device) {
         mDevice = device;
-        touchUniqueFd = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
         dispFeatureFd = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
     }
 
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
         LOG(INFO) << __func__;
-        setFodStatus(FOD_STATUS_ON);
+        set(FOD_STATUS_PATH, FOD_STATUS_ON);
         setFingerDown(true);
     }
 
     void onFingerUp() {
         LOG(INFO) << __func__;
-        setFodStatus(FOD_STATUS_OFF);
+        set(FOD_STATUS_PATH, FOD_STATUS_OFF);
         setFingerDown(false);
     }
 
@@ -91,28 +93,26 @@ public:
         LOG(INFO) << __func__ << " result: " << result << " vendorCode: " << vendorCode;
         if (static_cast<AcquiredInfo>(result) == AcquiredInfo::GOOD) {
             onFingerUp();
+        } else if (vendorCode == 21) {
+            /*
+             * vendorCode = 21 waiting for finger
+             * vendorCode = 22 finger down
+             * vendorCode = 23 finger up
+             */
+            set(FOD_STATUS_PATH, FOD_STATUS_ON);
         }
     }
 
     void cancel() {
         LOG(INFO) << __func__;
-        onFingerUp();
+        set(FOD_STATUS_PATH, FOD_STATUS_OFF);
     }
 
 private:
     fingerprint_device_t* mDevice;
-    android::base::unique_fd touchUniqueFd;
     android::base::unique_fd dispFeatureFd;
 
-    void setFodStatus(int value) {
-        int buf[MAX_BUF_SIZE] = {MI_DISP_PRIMARY, Touch_Fod_Enable, value};
-        ioctl(touchUniqueFd.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
-    }
-
     void setFingerDown(bool pressed) {
-        int buf[MAX_BUF_SIZE] = {MI_DISP_PRIMARY, THP_FOD_DOWNUP_CTL, pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED};
-        ioctl(touchUniqueFd.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
-
         struct disp_feature_req req = {
             .base = displayBasePrimary,
             .feature_id = DISP_FEATURE_LOCAL_HBM,

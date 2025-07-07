@@ -6,7 +6,11 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+TARGET_SUPPORTS_OMX_SERVICE := false
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Call the ViperFX Config
+$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Enable virtual A/B OTA
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
@@ -24,7 +28,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
 # API
-PRODUCT_SHIPPING_API_LEVEL := 31
+PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -138,8 +142,7 @@ PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
 # Device-specific settings
 PRODUCT_PACKAGES += \
-    DSPVolumeSynchronizer \
-    XiaomiParts
+    DSPVolumeSynchronizer
 
 # Display
 PRODUCT_PACKAGES += \
@@ -157,44 +160,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     hardware/qcom-caf/sm8350/display/config/snapdragon_color_libs_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/snapdragon_color_libs_config.xml
 
+# Dolby Vision
+$(call soong_config_set, dolby_vision, enabled, true)
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
-
-# Dolby
-PRODUCT_PACKAGES += \
-    XiaomiDolby
-
-# Dolby Config File
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/dolby/config/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml
-
-# Dolby MediaCodecs Dependenices
-PRODUCT_PACKAGES += \
-    libcodec2_hidl@1.0.vendor \
-    libcodec2_soft_common.vendor \
-    libstagefright_softomx.vendor \
-    libstagefright_softomx_plugin.vendor
-
-# Dolby Props
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.dolby.dax.version=DAX3_3.6.1.6_r1 \
-    ro.vendor.audio.dolby.dax.version=DAX3_3.6 \
-    ro.vendor.audio.dolby.dax.support=true \
-    ro.vendor.audio.dolby.surround.enable=true
-
-# Dolby Effects Props
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.audio.delta.refresh=true
-
-# MiSound
-PRODUCT_VENDOR_PROPERTIES += \
-    persist.vendor.audio.misound.disable=true \
-    ro.vendor.audio.misound.bluetooth.enable=true
-
-# Dolby VNDK libs
-PRODUCT_PACKAGES += \
-    libstagefright_foundation-v33
 
 # Fastbootd
 PRODUCT_PACKAGES += \
@@ -272,7 +243,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/init.batterysecret.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.batterysecret.rc \
     $(LOCAL_PATH)/rootdir/etc/init.mi_thermald.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mi_thermald.rc \
     $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.usb.rc \
     $(LOCAL_PATH)/rootdir/etc/init.qti.kernel.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qti.kernel.rc \
     $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc
 
@@ -292,7 +262,7 @@ PRODUCT_COPY_FILES += \
 
 # IFAA manager
 PRODUCT_PACKAGES += \
-    IFAAService
+     IFAAService
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -301,7 +271,7 @@ PRODUCT_PACKAGES += \
 
 # IR
 PRODUCT_PACKAGES += \
-    android.hardware.ir-service.xiaomi
+    android.hardware.ir-service.lineage
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.consumerir.xml
@@ -364,9 +334,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml
 
-# OMX
-TARGET_SUPPORTS_OMX_SERVICE := false
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
@@ -375,10 +342,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
 PRODUCT_PACKAGES += \
-    CarrierConfigOverlay \
+    NcmTetheringOverlay \
     NfcOverlay \
-    SettingsProviderOverlay \
-    WifiOverlay
+    SettingsProviderOverlay
 
 # Partitions
 PRODUCT_PACKAGES += \
@@ -398,8 +364,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
-$(call soong_config_set,power_libperfmgr,mode_extension_lib,//$(LOCAL_PATH):libperfmgr-ext-xiaomi)
-
 # PowerShare
 $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-battery/reverse_chg_mode)
 
@@ -415,6 +379,10 @@ PRODUCT_COPY_FILES += \
 # QTI fwk-detect
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti.vendor # Needed by CNE app
+
+# RIL
+PRODUCT_PACKAGES += \
+    CarrierConfigOverlay
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -435,9 +403,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
-# Sign
--include vendor/evolution-priv/keys/keys.mk
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
@@ -456,7 +421,9 @@ PRODUCT_PACKAGES += \
     qti-telephony-utils \
     qti_telephony_utils.xml \
     telephony-ext \
-    xiaomi-telephony-stub \
+    xiaomi-telephony-stub
+
+PRODUCT_PACKAGES += \
     qcrilNrDb_vendor
 
 PRODUCT_BOOT_JARS += \
@@ -489,7 +456,16 @@ PRODUCT_PACKAGES += \
 
 # USB
 PRODUCT_PACKAGES += \
-    android.hardware.usb-service.qti
+    android.hardware.usb-service.qti \
+    android.hardware.usb.gadget-service.qti \
+    usb_compositions.conf
+
+PRODUCT_PACKAGES += \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh
+
+PRODUCT_SOONG_NAMESPACES += \
+    vendor/qcom/opensource/usb/etc
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
@@ -525,6 +501,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-qcom \
+    WifiOverlay \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
