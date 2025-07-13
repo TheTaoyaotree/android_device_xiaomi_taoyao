@@ -862,7 +862,7 @@ vendor/lib64/libdrmtime.so
 vendor/lib64/libminkdescriptor.so
 vendor/lib64/libminksocket.so
 vendor/lib64/liboemcrypto.so
-vendor/lib64/libops.so
+vendor/lib64/libops.so|9b33ca1cf66aaf879dc6e9386fcc35f08324b234
 vendor/lib64/libqcbor.so
 vendor/lib64/libqisl.so
 vendor/lib64/librpmb.so
@@ -1084,6 +1084,9 @@ vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
 vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
+vendor/lib64/libcapiv2svacnn.so
+vendor/lib64/libcapiv2svarnn.so
+vendor/lib64/libcapiv2vop.so
 
 # Media
 system_ext/lib64/libmmosal.so
