@@ -1,4 +1,4 @@
-# All unpinned blobs below are extracted from taoyao V816.0.17.0.ULIMIXM
+# All unpinned blobs below are extracted from taoyao V816.0.18.0.ULIMIXM
 
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -772,11 +772,10 @@ vendor/etc/mdss_dsi_l9_42_02_0a_dsc_cmd_mi.xml
 vendor/lib64/hw/memtrack.default.so
 
 # Display - from sunstone V816.0.8.0.UMQMIXM
-vendor/etc/display/DPU660.xml
-vendor/etc/display/DPU670.xml
-vendor/etc/display/DPU720.xml
-vendor/etc/display/DPU7__.xml
-vendor/etc/display/advanced_sf_offsets.xml
+vendor/etc/display/DPU660.xml|b26dd73e361546d89bf3d7082a471703dc6ac2cb
+vendor/etc/display/DPU670.xml|e5131a60ceff29ca5eb561eec7eddadef1d0486f
+vendor/etc/display/DPU720.xml|4e54e8712d65773eb87867bf64a4cb98ea9bb8c3
+vendor/etc/display/DPU7__.xml|c056f3cb9fa123ca3de5b2a9775c184dddf25b9d
 vendor/lib64/libdisplayqos.so|aa222f4c1a2d2fb60944c44f8a82621d6bc75184
 vendor/lib64/libdisplayskuutils.so|d467f3bcaeafa6ed9de62afe2c00a3be46f4bb0f
 vendor/lib64/libdpps.so|b7d8458a66fd8510a7a490c1eebd3bac3fb159ec
