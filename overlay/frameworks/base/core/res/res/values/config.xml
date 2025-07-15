@@ -715,4 +715,14 @@
      <!-- Note: This config is deprecated, use BluetoothProperties instead.
           Tx current for bluetooth controller. 0 by default -->
      <integer name="config_bluetooth_tx_cur_ma">36</integer>
+
+    <!-- Type of the udfps long press sensor. Empty if long press is not supported. -->
+    <string name="config_dozeUdfpsLongPressSensorType" translatable="false">org.lineageos.sensor.udfps</string>
+
+    <!-- Whether to enable fp unlock when screen turns off on udfps devices -->
+    <bool name="config_screen_off_udfps_enabled">true</bool>
+
+    <!-- Default value for fp screen off unlock toggle, it only works for the devices that support
+         fp screen off unlock-->
+    <bool name="config_screen_off_udfps_default_on">true</bool>
 </resources>
