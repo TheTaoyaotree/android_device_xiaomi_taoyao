@@ -1,5 +1,2 @@
-# Fastcharge
-vendor_internal_prop(vendor_fastcharge_prop);
-
 # ZRAM
 vendor_internal_prop(vendor_zram_prop);
