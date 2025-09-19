@@ -211,3 +211,6 @@ include vendor/xiaomi/taoyao/BoardConfigVendor.mk
 
 # Device tree kernel
 include device/xiaomi/taoyao-kernel/BoardConfig.mk
+
+# Firmware
+include vendor/xiaomi/taoyao-firmware/BoardConfigVendor.mk
