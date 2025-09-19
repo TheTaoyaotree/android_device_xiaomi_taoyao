@@ -233,3 +233,6 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit proprietary blobs
 include vendor/xiaomi/taoyao/BoardConfigVendor.mk
+
+# Firmware
+include vendor/xiaomi/taoyao-firmware/BoardConfigVendor.mk
