@@ -117,7 +117,12 @@ PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
-    android.hardware.graphics.common-V4-ndk
+    vendor.qti.hardware.camera.device@1.0.vendor \
+    vendor.qti.hardware.camera.postproc@1.0.vendor \
+    android.hardware.graphics.common-V4-ndk \
+    libcamera2ndk_vendor \
+    libion.vendor \
+    libgui_vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera_cnf.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_cnf.txt \
@@ -132,7 +137,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.full.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.full.xml \
     frameworks/native/data/etc/android.hardware.camera.raw.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.raw.xml
 
-$(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.xiaomi_sm8350)
+$(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.xiaomi_taoyao)
 
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
