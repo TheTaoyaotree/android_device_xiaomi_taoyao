@@ -185,9 +185,6 @@ PRODUCT_PACKAGES += \
     libudfpshandler \
     sensors.xiaomi.v2
 
-PRODUCT_PACKAGES += \
-    FrameworkOverlayUDFPS
-
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.sensors.xiaomi.udfps=true
 endif
