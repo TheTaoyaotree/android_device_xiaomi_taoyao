@@ -1,13 +1,13 @@
 # Device configuration for Xiaomi 12 lite (taoyao)
 
-The Xiaomi 12 lite (codenamed _"taoyao"_) is a high-end smartphone from Xiaomi. It was released in September 2021.
+The Xiaomi 12 lite (codenamed _"taoyao"_) is a high-end smartphone from Xiaomi. It was released in July 2022.
 
 ## Device specifications
 
 | Feature                 | Specification                                                                                                                       |
 |:------------------------|:------------------------------------------------------------------------------------------------------------------------------------|
-| Chipset                 | Qualcomm SM7325 Snapdragon 778G (6nm) SM8350                                                                                              |
-| CPU                     | Octa-core (4x2.4 GHz Kryo 670 & 4x1.8 GHz Kryo 670) Cortex A78 & Cortex A55                                                                                 |
+| Chipset                 | Qualcomm SM7325 Snapdragon 778G (6nm)                                                                                               |
+| CPU                     | Octa-core (4x2.4 GHz Kryo 670 & 4x1.8 GHz Kryo 670)                                                                                 |
 | GPU                     | Adreno 642L                                                                                                                         |
 | Memory                  | 6/8 GB (LPDDR4X)                                                                                                                    |
 | Storage                 | 128/256 GB UFS 2.2                                                                                                                  |
@@ -21,5 +21,8 @@ The Xiaomi 12 lite (codenamed _"taoyao"_) is a high-end smartphone from Xiaomi. 
 | Fingerprint             | Under display, Optical                                                                                                                         |
 
 
+## Device picture
 
-Copyright (C) 2025 Taoyao-AOSP
+![Xiaomi 12 lite](https://fdn2.gsmarena.com/vv/pics/xiaomi/xiaomi-12-lite-05.jpg)
+
+Copyright (C) 2025 LineageOS
