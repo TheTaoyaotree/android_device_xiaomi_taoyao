@@ -14,7 +14,7 @@
 // limitations under the License.
 
 cc_library_static {
-    name: "libcameraservice_extension.xiaomi_sm8350",
+    name: "libcameraservice_extension.xiaomi",
     srcs: ["CameraProviderExtension.cpp"],
     include_dirs: [
         "frameworks/av/services/camera/libcameraservice/common"
