@@ -112,8 +112,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hidl.memory@1.0.vendor \
-    android.hidl.memory.block@1.0.vendor \
+    libutilscallstack.vendor \
     android.hardware.camera.provider@2.4-impl \
     android.hardware.camera.provider@2.4-service_64 \
     android.hardware.graphics.common-V4-ndk \
@@ -122,6 +121,13 @@ PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     libion.vendor \
     libgui_vendor
+
+PRODUCT_PACKAGES += \
+    libMegviiFacepp-0.5.2 \
+    libmegface
+
+PRODUCT_PACKAGES += \
+    liblz4.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/camera_cnf.txt:$(TARGET_COPY_OUT_VENDOR)/etc/camera/camera_cnf.txt \
@@ -243,7 +249,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti
 
+# HIDL
 PRODUCT_PACKAGES += \
+    android.hidl.memory@1.0.vendor \
+    android.hidl.memory.block@1.0.vendor \
     android.hidl.base@1.0 \
     android.hidl.base@1.0.vendor \
     libhidltransport \
