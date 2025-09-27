@@ -5,8 +5,6 @@
 
 DEVICE_PATH := device/xiaomi/taoyao
 
-BOARD_VENDOR := xiaomi
-
 # Ignore overriding commands errors
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
@@ -51,6 +49,8 @@ BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(COMMON_PATH)/bluetooth/include
 
 # Bootloader
+BOARD_VENDOR := xiaomi
+TARGET_BOOTLOADER_BOARD_NAME := taoyao
 TARGET_NO_BOOTLOADER := true
 
 # Camera
