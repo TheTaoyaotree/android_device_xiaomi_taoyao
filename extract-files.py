@@ -99,11 +99,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('xml=version', 'xml version'),
     'system/lib64/libmicampostproc_client.so': blob_fixup()
         .remove_needed('libhidltransport.so'),
-    'system/lib64/libcamera_algoup_jni.xiaomi.so': blob_fixup()
-        .add_needed('libcamera_shim.so')
-        .sig_replace('08 AD 40 F9', '08 A9 40 F9'),
-    'system/lib64/libcamera_mianode_jni.xiaomi.so': blob_fixup()
-        .add_needed('libcamera_shim.so'),
     ('vendor/lib/hw/audio.primary.lahaina.so', 'vendor/lib/libaudioroute_ext.so'): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
     # Dolby START
