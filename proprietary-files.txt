@@ -166,18 +166,8 @@ vendor/lib64/libjnihelper.so
 vendor/lib64/vendor.qti.hardware.cacert@1.0.so
 
 # Camera
-product/priv-app/MiuiCamera/MiuiCamera.apk:system/priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Aperture,Camera2
-system_ext/lib64/libcamera_algoup_jni.xiaomi.so:system/lib64/libcamera_algoup_jni.xiaomi.so
-system_ext/lib64/libcamera_mianode_jni.xiaomi.so:system/lib64/libcamera_mianode_jni.xiaomi.so
-system_ext/lib64/libmicampostproc_client.so:system/lib64/libmicampostproc_client.so
-system_ext/lib64/vendor.xiaomi.hardware.campostproc@1.0.so:system/lib64/vendor.xiaomi.hardware.campostproc@1.0.so
 vendor/bin/loadalgo
 vendor/lib/libcamxexternalformatutils.so
-vendor/lib/libcom.xiaomi.debug.so
-vendor/lib/libcom.xiaomi.grallocutils.so
-vendor/lib/libcom.xiaomi.metadatautils.so
-vendor/lib/libcom.xiaomi.pluginutils.so
-vendor/lib/libmialgoengine.so
 vendor/lib64/hw/camera.qcom.so
 vendor/lib64/hw/camera.xiaomi.so
 vendor/lib64/hw/com.qti.chi.override.so
@@ -312,6 +302,12 @@ vendor/lib64/libxmi_high_dynamic_range_cdsp.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0-service-impl.so
 vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0.so;MODULE_SUFFIX=_vendor
+system_ext/lib64/vendor.xiaomi.hardware.campostproc@1.0.so:system/lib64/vendor.xiaomi.hardware.campostproc@1.0.so
+
+# Camera face detection
+vendor/etc/camera/megviifacepp_0_5_2_model
+vendor/lib64/libMegviiFacepp-0.5.2.so
+vendor/lib64/libmegface.so:vendor/lib64/libmegface_xiaomi.so;FIX_SONAME
 
 # Camera components
 vendor/lib64/camera/components/com.mi.node.aiasd.so
@@ -452,6 +448,7 @@ vendor/etc/camera/intsense_config_undistort.bin
 vendor/etc/camera/m-v2light-aug_u2head_backbone_01246_160000_with_softmax_quant.dlc
 vendor/etc/camera/mbv2_epoch_318_wo_norm_spd_with_softmax.dlc
 vendor/etc/camera/mbv3tpu_big_1024_2x_postquant_snpe.dlc
+vendor/etc/camera/megviifacepp_0_5_2_model
 vendor/etc/camera/miai_hdr_config.yaml
 vendor/etc/camera/miai_psn_config.yaml
 vendor/etc/camera/mibokeh_855_opencl.bin
@@ -488,14 +485,6 @@ vendor/etc/camera/resources/kernel/64/s31bc24e5f6c4ef1752c77f3a22ad1ffcs0cc175b9
 vendor/etc/camera/resources/kernel/64/t31bc24e5f6c4ef1752c77f3a22ad1ffcs0cc175b9c0f1b6a831c399e269772661t92eb5ffee6ae2fec3ad71c777531578fn92eb5ffee6ae2fec3ad71c777531578fn.bin
 vendor/etc/camera/resources/kernel/FaceRetouch64.bin
 vendor/etc/camera/resources/model/2722133617
-
-# Camera face detection
-vendor/etc/camera/megviifacepp_0_5_2_model
-vendor/lib64/libMegviiFacepp-0.5.2.so
-vendor/lib64/libmegface.so:vendor/lib64/libmegface_xiaomi.so;FIX_SONAME
-
-# Camera Extensions
-system_ext/framework/camerax-vendor-extensions.jar:system/framework/camerax-vendor-extensions.jar;BOOT_JAR
 
 # Camera features
 vendor/lib64/com.qti.chiusecaseselector.so
@@ -586,6 +575,8 @@ vendor/lib64/camera/com.qti.sensormodule.taoyao_semco_s5khm2_wide.bin
 vendor/lib64/camera/com.qti.sensormodule.taoyao_sunny_gc02m1_macro.bin
 vendor/lib64/camera/com.qti.sensormodule.taoyao_sunny_s5kgd2_front.bin
 vendor/lib64/camera/com.qti.tuned.default.bin
+vendor/lib64/libtriplecam_optical_zoom_control.so
+vendor/lib64/libI420colorconvert.so
 vendor/lib64/camera/com.qti.tuned.taoyao_aac_imx355_ultra.bin
 vendor/lib64/camera/com.qti.tuned.taoyao_ofilm_imx355_ultra.bin
 vendor/lib64/camera/com.qti.tuned.taoyao_ofilm_ov2680_macro.bin
@@ -605,25 +596,14 @@ vendor/lib64/com.qti.settings.kodiak.so
 vendor/lib64/com.qti.settings.mannar.so
 vendor/lib64/com.qti.settings.sdm865.so
 vendor/lib64/com.qti.settings.sm8350.so
+vendor/lib64/libcapiv2svacnn.so
+vendor/lib64/libcapiv2svarnn.so
+vendor/lib64/libcapiv2vop.so
 vendor/lib64/libloadalgo_stub.so
 vendor/lib64/libmm-color-convertor.so
 
-# CamLegacy
-vendor/bin/hw/android.hardware.camera.provider@2.4-virtual-camera-service
-vendor/etc/init/android.hardware.camera.provider@2.4-virtual-camera-service.rc
-vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
-vendor/lib64/android.hardware.camera.provider@2.4-external.so
-vendor/lib64/hw/android.hardware.camera.provider@2.4-impl.so
-vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-vcamera.so
-vendor/lib64/camera.device@3.6-external-impl.so
-vendor/lib64/camera.device@3.5-impl.so
-vendor/lib64/camera.device@3.5-external-impl.so
-vendor/lib64/camera.device@3.4-impl.so
-vendor/lib64/camera.device@3.4-external-impl.so
-vendor/lib64/camera.device@3.3-impl.so
-vendor/lib64/camera.device@3.2-impl.so
-vendor/lib64/camera.device@1.0-impl.so
-vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
+# Camera Extensions
+system_ext/framework/camerax-vendor-extensions.jar:system/framework/camerax-vendor-extensions.jar;BOOT_JAR
 
 # CDSP
 vendor/bin/cdsprpcd
@@ -1130,9 +1110,6 @@ vendor/lib/libgcs-osal.so
 vendor/lib/libgcs.so
 vendor/lib/liblistensoundmodel2.so
 vendor/lib/libmulawdec.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2svarnn.so
-vendor/lib64/libcapiv2vop.so
 
 # Media
 system_ext/lib64/libmmosal.so
@@ -1636,7 +1613,6 @@ vendor/lib64/vendor.qti.hardware.tui_comm@1.0.so
 
 # Vibrator firmware
 vendor/firmware/aw8622x_haptic.bin
-vendor/lib64/libtriplecam_optical_zoom_control.so
 vendor/lib64/libsysmon_cdsp_skel.so
 
 # VPP
