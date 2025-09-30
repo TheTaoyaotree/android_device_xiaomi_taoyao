@@ -30,6 +30,8 @@ PRODUCT_SHIPPING_API_LEVEL := 31
 PRODUCT_PACKAGES += \
     libqcompostprocbundle \
     libqcomvisualizer \
+    libexthwplugin \
+    libspkrprot \
     libqcomvoiceprocessing \
     libtinycompress \
     libvolumelistener
