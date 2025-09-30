@@ -7,13 +7,8 @@
 # Inherit from taoyao device
 $(call inherit-product, device/xiaomi/taoyao/device.mk)
 
-# Inherit from common Evolution X configuration
+# Inherit from common LineageOS configuration
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
-
-TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_HAS_UDFPS := true
-TARGET_INCLUDE_ACCORD := false
-WITH_GMS := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_taoyao
