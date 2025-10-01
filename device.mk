@@ -149,7 +149,6 @@ $(call soong_config_set,camera,package_name,com.android.camera)
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/camerax-vendor-extensions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/camerax-vendor-extensions.xml
 
-
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
@@ -194,7 +193,8 @@ PRODUCT_PACKAGES += \
 ifeq ($(TARGET_HAS_UDFPS),true)
 PRODUCT_PACKAGES += \
     libudfpshandler \
-    sensors.xiaomi.v2
+    sensors.xiaomi.v2 \
+    vendor.xiaomi.hardware.fx.tunnel@1.0.vendor
 
 PRODUCT_VENDOR_PROPERTIES += \
     ro.vendor.sensors.xiaomi.udfps=true
