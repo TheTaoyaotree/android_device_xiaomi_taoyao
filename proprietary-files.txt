@@ -933,6 +933,15 @@ vendor/lib64/vendor.xiaomi.hardware.dtool@1.0.so
 vendor/bin/hw/vendor.xiaomi.hardware.dtool@1.0-service
 vendor/etc/init/vendor.xiaomi.hardware.dtool@1.0-service.rc
 
+# Fingerprint (firmware)
+vendor/firmware/FOD_Motion1_RTP.bin
+vendor/firmware/FOD_Motion2_RTP.bin
+vendor/firmware/FOD_Motion3_RTP.bin
+vendor/firmware/FOD_Motion4_RTP.bin
+vendor/firmware/FOD_Motion_Aurora_RTP.bin
+vendor/firmware/FOD_Motion_Planet_RTP.bin
+vendor/firmware/fingerprint_record_rtp.bin
+
 # Gatekeeper
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
