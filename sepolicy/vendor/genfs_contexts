@@ -3,6 +3,7 @@ genfscon sysfs /devices/system/cpu/cpu[0-7]/online   u:object_r:vendor_sysfs_cor
 
 # Display
 genfscon sysfs /devices/platform/soc/soc:qcom,dsi-display-primary                  u:object_r:vendor_sysfs_graphics:s0
+genfscon sysfs /devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param                         u:object_r:vendor_displayfeature_sysfs:s0
 
 # Extcon
 genfscon sysfs /devices/platform/soc/soc:extcon_usb1/extcon u:object_r:sysfs_extcon:s0
