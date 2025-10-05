@@ -195,9 +195,6 @@ PRODUCT_PACKAGES += \
     libudfpshandler \
     sensors.xiaomi.v2 \
     vendor.xiaomi.hardware.fx.tunnel@1.0.vendor
-
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.sensors.xiaomi.udfps=true
 endif
 
 PRODUCT_COPY_FILES += \
