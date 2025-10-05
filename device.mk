@@ -197,9 +197,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     FrameworkOverlayUDFPS
-
-PRODUCT_VENDOR_PROPERTIES += \
-    ro.vendor.sensors.xiaomi.udfps=true
 endif
 
 PRODUCT_COPY_FILES += \
