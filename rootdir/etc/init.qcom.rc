@@ -86,9 +86,14 @@ on boot
     setprop ro.boot.wificountrycode 00
 
     mkdir /mnt/vendor/persist/alarm 0770 system system
+    mkdir /mnt/vendor/persist/time 0770 system system
     mkdir /mnt/vendor/persist/secnvm 0770 system system
     mkdir /mnt/vendor/persist/iar_db 0770 system system
     mkdir /mnt/vendor/spunvm 0770 system system
+
+
+    # Create /data/time folder for time-services
+    mkdir /data/vendor/time/ 0700 system system
 
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
