@@ -308,7 +308,6 @@ vendor/lib64/libxmi_high_dynamic_range_cdsp.so
 vendor/lib64/vendor.qti.hardware.camera.postproc@1.0-service-impl.so
 vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0-service-impl.so
 vendor/lib64/vendor.xiaomi.hardware.campostproc@1.0.so;MODULE_SUFFIX=_vendor
-system_ext/lib64/vendor.xiaomi.hardware.campostproc@1.0.so:system/lib64/vendor.xiaomi.hardware.campostproc@1.0.so
 
 # Camera face detection
 vendor/etc/camera/megviifacepp_0_5_2_model
